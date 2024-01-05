@@ -1,0 +1,88 @@
+#  █████▒██▓     ██▓ ██▓███  
+#▓██   ▒▓██▒    ▓██▒▓██░  ██▒
+#▒████ ░▒██░    ▒██▒▓██░ ██▓▒
+#░▓█▒  ░▒██░    ░██░▒██▄█▓▒ ▒
+#░▒█░   ░██████▒░██░▒██▒ ░  ░
+# ▒ ░   ░ ▒░▓  ░░▓  ▒▓▒░ ░  ░
+# ░     ░ ░ ▒  ░ ▒ ░░▒ ░     
+# ░ ░     ░ ░    ▒ ░░░       
+#           ░  ░ ░           
+#  i3 config for cool ppl
+#                            
+
+#set modkey
+set $mod Mod4
+
+#----------------#
+# config imports #
+#----------------#
+include autostart.conf
+include keybindings.conf
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# Workspace names.
+# variables is set so we can change names dynamically without chaning keybinds.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+#APPERANCE SETTINGS
+
+#set font for window titles+bar
+font pango:monospace 8
+
+#set inner/outer gaps
+gaps inner 6
+gaps outer 3
+
+#active window border 
+new_window pixel 1
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	      output DP-0
+        tray_output none
+        status_command py3status -c /home/flip/.config/i3/i3status.conf
+        colors {
+          background #282c34
+          statusline #ffffff
+
+          focused_workspace  #ffffff #285577
+          active_workspace   #ffffff #333333
+          inactive_workspace #888888 #222222
+          urgent_workspace   #ffffff #900000
+    }
+}
+
+bar {
+	      output DP-2
+	      output eDP-1
+        tray_output primary
+        status_command py3status -c /home/flip/.config/i3/i3status.conf
+        colors {
+          background #282c34
+          statusline #ffffff
+
+          focused_workspace  #ffffff #285577
+          active_workspace   #ffffff #333333
+          inactive_workspace #888888 #222222
+          urgent_workspace   #ffffff #900000
+    }
+}
+
+
